@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+</head>
+<body>
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">Portfolio</div>
+            <ul class="nav-links">
+                <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
+                <li><a href="#" class="nav-link" data-page="bio">Bio</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle">
+                <span id="themeIcon">🌙</span>
+            </button>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Home Page -->
+        <section id="home" class="page active">
+            <div class="container">
+                <div class="hero">
+                    <h1>Hello, I'm <span class="accent">Your Name</span></h1>
+                    <p>A passionate developer creating beautiful and functional web experiences.</p>
+                    <a href="#" class="btn" data-page="bio">Learn More About Me</a>
+                </div>
+                
+                <h2 style="text-align: center; margin-bottom: 2rem;">Featured Projects</h2>
+                <div class="projects">
+                    <div class="project-card">
+                        <div class="project-img">Project Image</div>
+                        <div class="project-content">
+                            <h3>Project One</h3>
+                            <p>A brief description of your first project. Highlight the technologies used and the problem it solves.</p>
+                            <a href="#" class="btn">View Project</a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-img">Project Image</div>
+                        <div class="project-content">
+                            <h3>Project Two</h3>
+                            <p>A brief description of your second project. Explain your role and the outcome of the project.</p>
+                            <a href="#" class="btn">View Project</a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-img">Project Image</div>
+                        <div class="project-content">
+                            <h3>Project Three</h3>
+                            <p>A brief description of your third project. Mention any challenges you overcame during development.</p>
+                            <a href="#" class="btn">View Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bio Page -->
+        <section id="bio" class="page">
+            <div class="container">
+                <div class="bio-content">
+                    <div class="profile-img">👤</div>
+                    <div class="bio-text">
+                        <h2>About Me</h2>
+                        <p>Hello! I'm a passionate web developer with a keen eye for design and a love for creating intuitive user experiences. With several years of experience in front-end development, I specialize in building responsive, accessible websites and applications.</p>
+                        <p>My journey in tech started when I discovered the power of code to bring ideas to life. Since then, I've worked on various projects ranging from small business websites to complex web applications.</p>
+                        <p>When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or enjoying outdoor activities.</p>
+                        
+                        <h3>Skills & Technologies</h3>
+                        <div class="skills">
+                            <div class="skill">HTML/CSS</div>
+                            <div class="skill">JavaScript</div>
+                            <div class="skill">React</div>
+                            <div class="skill">Node.js</div>
+                            <div class="skill">UI/UX Design</div>
+                            <div class="skill">Responsive Design</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Your Name. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#">GitHub</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">Twitter</a>
+                <a href="#">Email</a>
+            </div>
+        </div>
+    </footer>
