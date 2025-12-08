@@ -1,19 +1,18 @@
 // Projects data for all three projects
 const projects = {
     1: {
-        title: "Car Seat Headrest Posters",
-        date: "October 2023",
+        title: "Car Seat Headrest Concert Posters",
+        date: "2023-2025",
         category: "Graphic Design",
         status: "Completed",
         heroText: "Car Seat Headrest Poster Series",
-        overview: "A digital poster series inspired by the music and aesthetic of Car Seat Headrest. Each poster represents a different album or song, blending typography with visual metaphors from the lyrics.",
+        overview: "A digital poster series inspired by the music and aesthetic of Car Seat Headrest. Each poster promotes a different concert venue or venues, blending typography with visual themes across the albums.",
         features: [
-            "10 unique poster designs",
+            "4 unique poster designs",
             "Typography-focused layouts",
-            "Lyric-inspired visual elements",
+            "Album-inspired visual elements",
             "Color schemes matching album moods",
             "Digital and print-ready formats",
-            "Minimalist design approach"
         ],
         process: "The design process involved deep listening to each album, extracting key lyrical themes, and translating them into visual metaphors. I experimented with typography as the primary visual element, using typefaces that reflected the emotional tone of each song.",
         technologies: ["Adobe Illustrator", "Photoshop", "Typography", "Color Theory", "Digital Illustration"],
