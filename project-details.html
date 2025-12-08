@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details - My Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="project-details.css">
+</head>
+<body>
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">Portfolio</div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="index.html#bio" class="nav-link">Bio</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle">
+                <span id="themeIcon">🌙</span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="project-details">
+        <div class="container">
+            <a href="index.html" class="back-button">← Back to Portfolio</a>
+            
+            <div class="project-header">
+                <h1 class="project-title" id="projectTitle">Project Title</h1>
+                <div class="project-meta">
+                    <div class="meta-item">
+                        <span class="meta-label">Date</span>
+                        <span class="meta-value" id="projectDate">Loading...</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Category</span>
+                        <span class="meta-value" id="projectCategory">Loading...</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Status</span>
+                        <span class="meta-value" id="projectStatus">Loading...</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-hero" id="projectHero">
+                <!-- Hero image will be loaded here -->
+            </div>
+            
+            <div class="project-content">
+                <div class="project-description">
+                    <h2>Project Overview</h2>
+                    <p id="projectOverview">Loading project details...</p>
+                    
+                    <h2>Features</h2>
+                    <ul id="projectFeatures">
+                        <!-- Features will be loaded here -->
+                    </ul>
+                    
+                    <h2>Design Process</h2>
+                    <p id="projectProcess">Loading design process...</p>
+                    
+                    <div class="gallery">
+                        <h2>Project Gallery</h2>
+                        <div class="gallery-grid" id="projectGallery">
+                            <!-- Gallery images will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-sidebar">
+                    <h3>Technologies Used</h3>
+                    <div class="technologies-list" id="projectTechnologies">
+                        <!-- Technologies will be loaded here -->
+                    </div>
+                    
+                    <h3>Project Links</h3>
+                    <div class="project-links">
+                        <a href="#" class="link-button" id="liveDemoLink" target="_blank">
+                            <span>🌐</span> Live Demo
+                        </a>
+                        <a href="#" class="link-button" id="githubLink" target="_blank">
+                            <span>💻</span> View Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Your Name. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#">GitHub</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">Instagram</a>
+                <a href="#">Email</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="project-details.js"></script>
+</body>
+</html>
