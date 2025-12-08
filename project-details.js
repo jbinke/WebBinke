@@ -22,7 +22,6 @@ const projects = {
             "Poster 3: State Theater, Portland, ME",
             "Poster 4: The Scholars 2025 Tour"
         ],
-        liveDemo: "#",
         github: "#"
     },
     2: {
@@ -47,7 +46,6 @@ const projects = {
             "Symbolism Explorer",
             "Mobile Responsive Design"
         ],
-        liveDemo: "#",
         github: "https://jbinke.github.io/tarotproject/"
     },
     3: {
@@ -58,22 +56,17 @@ const projects = {
         heroText: "Doctor Who Fan Portal",
         overview: "A comprehensive fan website dedicated to Doctor Who, featuring episode guides, character databases, news, and community features. Designed to be the ultimate resource for Whovians.",
         features: [
-            "Complete episode guide (1963-present)",
-            "Character and alien database",
-            "TARDIS interior explorer",
-            "Community forum",
-            "News and updates section",
-            "Interactive timeline"
+            "Complete series guide (1963-present)",
+            "The Doctor database"
         ],
         process: "The design captures the whimsical yet sci-fi aesthetic of Doctor Who. I created a custom color scheme based on the TARDIS blue, with accent colors representing different Doctors. The layout balances extensive content with playful interactive elements.",
-        technologies: ["Web Design", "HTML/CSS", "Fan Content", "Community Features", "Content Management"],
+        technologies: ["Web Design", "HTML/CSS", "Fan Content"],
         galleryItems: [
             "Home Page Design",
             "Episode Guide Interface",
             "TARDIS Explorer",
             "Character Database"
         ],
-        liveDemo: "#",
         github: "#"
     }
 };
