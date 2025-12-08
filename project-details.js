@@ -59,13 +59,13 @@ const projects = {
             "Complete series guide (1963-present)",
             "The Doctor database"
         ],
-        process: "The design captures the whimsical yet sci-fi aesthetic of Doctor Who. I created a custom color scheme based on the TARDIS blue, with accent colors representing different Doctors. The layout balances extensive content with playful interactive elements.",
+        process: "The design captures the whimsical yet sci-fi aesthetic of Doctor Who. The layout balances extensive content with playful interactive elements.",
         technologies: ["Web Design", "HTML/CSS", "Fan Content"],
         galleryItems: [
             "Home Page Design",
             "Episode Guide Interface",
-            "TARDIS Explorer",
-            "Character Database"
+            "Quote Generator",
+            "The Doctor Database"
         ],
         github: "#"
     }
