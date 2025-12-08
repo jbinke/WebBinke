@@ -48,7 +48,7 @@ const projects = {
             "Mobile Responsive Design"
         ],
         liveDemo: "#",
-        github: "#"
+        github: "https://jbinke.github.io/tarotproject/"
     },
     3: {
         title: "Doctor Who Fan Site",
