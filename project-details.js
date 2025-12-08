@@ -2,7 +2,7 @@
 const projects = {
     1: {
         title: "Car Seat Headrest Concert Posters",
-        date: "2023-2025",
+        date: "2022-2025",
         category: "Graphic Design",
         status: "Completed",
         heroText: "Car Seat Headrest Poster Series",
@@ -14,13 +14,13 @@ const projects = {
             "Color schemes matching album moods",
             "Digital and print-ready formats",
         ],
-        process: "The design process involved deep listening to each album, extracting key lyrical themes, and translating them into visual metaphors. I experimented with typography as the primary visual element, using typefaces that reflected the emotional tone of each song.",
+        process: "The design process involved... ",
         technologies: ["Adobe Illustrator", "Photoshop", "Typography", "Color Theory", "Digital Illustration"],
         galleryItems: [
-            "Poster 1: Twin Fantasy",
-            "Poster 2: Teens of Denial", 
-            "Poster 3: Making a Door",
-            "Poster 4: Monomania"
+            "Poster 1: Belasco Theater, Los Angeles, CA",
+            "Poster 2: Alternate Version - Belasco Theater, Los Angeles, CA", 
+            "Poster 3: State Theater, Portland, ME",
+            "Poster 4: The Scholars 2025 Tour"
         ],
         liveDemo: "#",
         github: "#"
