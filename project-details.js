@@ -12,7 +12,7 @@ const projects = {
             "Typography-focused layouts",
             "Album-inspired visual elements",
             "Color schemes matching album moods",
-            "Digital and print-ready formats",
+            "Digital and print-ready formats"
         ],
         process: "The design process involved... ",
         technologies: ["Adobe Illustrator", "Photoshop", "Typography", "Color Theory", "Digital Illustration"],
@@ -27,18 +27,17 @@ const projects = {
     },
     2: {
         title: "Tarot Database Website",
-        date: "August 2023",
+        date: "August 2025",
         category: "Web Development",
-        status: "In Progress",
+        status: "Complete",
         heroText: "Tarot Card Database",
         overview: "An interactive database of tarot cards with detailed meanings, symbolism, and digital reading capabilities. The site serves as both an educational resource and a practical tool for tarot enthusiasts.",
         features: [
-            "Complete 78-card database",
+            "Complete Major Arcana 22-card database",
             "Card meanings and interpretations",
-            "Interactive digital readings",
+            "Rand Card Generator",
             "Card symbolism explorer",
-            "Spread builder tool",
-            "User journal feature"
+            "Spread builder tool"
         ],
         process: "Built with a mobile-first approach, the site organizes complex tarot information into an intuitive interface. Each card page includes upright/reversed meanings, symbolism breakdown, and related cards. The digital reader uses JavaScript to simulate physical card draws.",
         technologies: ["HTML/CSS", "JavaScript", "API Integration", "Responsive Design", "UI/UX"],
