@@ -16,33 +16,30 @@ const projects = {
         ],
         process: "The design process involved...",
         technologies: ["Adobe Illustrator", "Photoshop", "Typography", "Color Theory", "Digital Illustration"],
-        
+        // GALLERY ITEMS WITH IMAGES
         galleryItems: [
             {
                 type: "image", 
                 src: "images/csh_LA_v1.jpg", 
-                alt: "Belasco Theater, Los Angeles, CA",
-                thumbnail: "#"
+                alt: "Belasco Theater, Los Angeles, CA"
             },
             {
                 type: "image", 
                 src: "images/csh_LA_v2.jpg", 
-                alt: "Alternate Version - Belasco Theater, Los Angeles, CA",
-                thumbnail: "#"
+                alt: "Alternate Version - Belasco Theater, Los Angeles, CA"
             },
             {
                 type: "image", 
                 src: "images/csh_ME.jpg", 
-                alt: "State Theater, Portland, ME",
-                thumbnail: "#"
+                alt: "State Theater, Portland, ME"
             },
             {
                 type: "image", 
                 src: "images/csh_scholar.jpg", 
-                alt: "The Scholars 2025 Tour",
-                thumbnail: "#"
-            },
-        ],
+                alt: "The Scholars 2025 Tour"
+            }
+        ]
+        // NOTE: No github property for this project
     },
     2: {
         title: "Tarot Database Website",
@@ -59,34 +56,24 @@ const projects = {
         ],
         process: "Built with a mobile-first approach, the site organizes complex tarot information into an intuitive interface. Each card page includes upright/reversed meanings, symbolism breakdown, and related cards. The digital reader uses JavaScript to simulate physical card draws.",
         technologies: ["HTML/CSS", "JavaScript", "API Integration", "Responsive Design", "UI/UX"],
-        // UPDATED GALLERY ITEMS
         galleryItems: [
             {
                 type: "image", 
-                src: "images/tarot-1.jpg", 
-                alt: "Card Database Interface",
-                thumbnail: "images/tarot-1-thumb.jpg"
+                src: "images/tarot_mainpage.png", 
+                alt: "Website Home Page"
             },
             {
                 type: "image", 
-                src: "images/tarot-2.jpg", 
-                alt: "Digital Reading Feature",
-                thumbnail: "images/tarot-2-thumb.jpg"
+                src: "images/tarot_cardpick.png", 
+                alt: "Card Pulling Feature"
             },
             {
                 type: "image", 
-                src: "images/tarot-3.jpg", 
-                alt: "Symbolism Explorer",
-                thumbnail: "images/tarot-3-thumb.jpg"
-            },
-            {
-                type: "image", 
-                src: "images/tarot-4.jpg", 
-                alt: "Mobile Responsive Design",
-                thumbnail: "images/tarot-4-thumb.jpg"
+                src: "images/tarot_cardgallery.png", 
+                alt: "Symbolism Explorer"
             }
         ],
-        github: "#"
+        github: "#" // Empty link for now
     },
     3: {
         title: "Doctor Who Fan Site",
@@ -101,34 +88,29 @@ const projects = {
         ],
         process: "The design captures the whimsical yet sci-fi aesthetic of Doctor Who. The layout balances extensive content with playful interactive elements.",
         technologies: ["Web Design", "HTML/CSS", "Fan Content"],
-        // UPDATED GALLERY ITEMS
         galleryItems: [
             {
                 type: "image", 
                 src: "images/doctor-who-1.jpg", 
-                alt: "Home Page Design",
-                thumbnail: "images/doctor-who-1-thumb.jpg"
+                alt: "Home Page Design"
             },
             {
                 type: "image", 
                 src: "images/doctor-who-2.jpg", 
-                alt: "Episode Guide Interface",
-                thumbnail: "images/doctor-who-2-thumb.jpg"
+                alt: "Episode Guide Interface"
             },
             {
                 type: "image", 
                 src: "images/doctor-who-3.jpg", 
-                alt: "Quote Generator",
-                thumbnail: "images/doctor-who-3-thumb.jpg"
+                alt: "Quote Generator"
             },
             {
                 type: "image", 
                 src: "images/doctor-who-4.jpg", 
-                alt: "The Doctor Database",
-                thumbnail: "images/doctor-who-4-thumb.jpg"
+                alt: "The Doctor Database"
             }
         ],
-        github: "#"
+        github: "#" // Empty link for now
     }
 };
 
@@ -204,59 +186,51 @@ function loadProjectData(projectId) {
         .map(tech => `<span class="tech-tag">${tech}</span>`)
         .join('');
     
-    // UPDATE GALLERY SECTION - Add images with thumbnails
+    // LOAD GALLERY - Simple clean version
     const gallery = document.getElementById('projectGallery');
     gallery.innerHTML = project.galleryItems
         .map((item, index) => {
-            // Use thumbnail if available, otherwise use main image
-            const displaySrc = item.thumbnail || item.src;
-            
-            if (item.type === "pdf") {
-                // Handle PDF files differently
-                return `
-                    <div class="gallery-item pdf-item" data-index="${index}">
-                        <a href="${item.src}" target="_blank" class="gallery-link">
-                            <div class="pdf-icon">📄</div>
-                            <img src="${displaySrc}" 
-                                 alt="${item.alt}" 
-                                 class="gallery-img"
-                                 loading="lazy">
-                            <div class="gallery-overlay">
-                                <span class="view-full">View PDF</span>
-                            </div>
-                        </a>
-                        <div class="gallery-caption">${item.alt}</div>
-                    </div>
-                `;
-            } else {
-                // Handle images
-                return `
-                    <div class="gallery-item" data-index="${index}">
-                        <img src="${displaySrc}" 
+            return `
+                <div class="gallery-item">
+                    <div class="gallery-image-container">
+                        <img src="${item.src}" 
                              alt="${item.alt}" 
-                             class="gallery-img"
+                             class="gallery-thumbnail"
                              loading="lazy"
-                             data-fullsrc="${item.src}"
                              onclick="openLightbox(${projectId}, ${index})">
                         <div class="gallery-overlay">
                             <span class="view-full">Click to enlarge</span>
                         </div>
-                        <div class="gallery-caption">${item.alt}</div>
                     </div>
-                `;
-            }
+                    <div class="gallery-caption">${item.alt}</div>
+                </div>
+            `;
         })
         .join('');
     
-    // Update links
+    // UPDATE LINKS - Only show GitHub link if it exists
     const githubLink = document.getElementById('githubLink');
-    
-    if (project.github !== '#') {
-        githubLink.href = project.github;
+    if (project.github) {
+        if (project.github !== '#') {
+            githubLink.href = project.github;
+            githubLink.style.display = 'flex'; // Show the link
+        } else {
+            githubLink.style.display = 'none'; // Hide the link if it's just '#'
+        }
     } else {
-        githubLink.style.opacity = '0.5';
-        githubLink.style.cursor = 'not-allowed';
-        githubLink.onclick = (e) => e.preventDefault();
+        // If no github property at all, hide the entire links section
+        const linksSection = document.querySelector('.project-links');
+        if (linksSection) {
+            linksSection.style.display = 'none';
+        }
+    }
+    
+    // For Car Seat Headrest project (id: 1), hide GitHub links section entirely
+    if (projectId === "1") {
+        const linksSection = document.querySelector('.project-links');
+        if (linksSection) {
+            linksSection.style.display = 'none';
+        }
     }
 }
 
@@ -269,12 +243,6 @@ function showProjectNotFound() {
 function openLightbox(projectId, imageIndex) {
     const project = projects[projectId];
     const item = project.galleryItems[imageIndex];
-    
-    if (item.type === "pdf") {
-        // For PDFs, just open in new tab
-        window.open(item.src, '_blank');
-        return;
-    }
     
     // Create lightbox overlay
     const lightbox = document.createElement('div');
@@ -293,7 +261,7 @@ function openLightbox(projectId, imageIndex) {
     `;
     
     document.body.appendChild(lightbox);
-    document.body.style.overflow = 'hidden'; // Prevent scrolling
+    document.body.style.overflow = 'hidden';
     
     // Add keyboard navigation
     document.addEventListener('keydown', handleLightboxKeydown);
@@ -312,12 +280,6 @@ function changeLightboxImage(projectId, currentIndex, direction) {
     const project = projects[projectId];
     const newIndex = (currentIndex + direction + project.galleryItems.length) % project.galleryItems.length;
     const item = project.galleryItems[newIndex];
-    
-    // Skip PDFs in lightbox navigation
-    if (item.type === "pdf") {
-        // Move to next non-PDF item
-        return changeLightboxImage(projectId, newIndex, direction);
-    }
     
     // Update lightbox
     const lightboxImage = document.querySelector('.lightbox-image');
@@ -457,38 +419,79 @@ const lightboxStyles = `
         font-size: 0.9rem;
     }
     
-    .gallery-caption {
-        text-align: center;
-        margin-top: 8px;
-        font-size: 0.9rem;
-        color: var(--text-color);
-        opacity: 0.8;
+    /* Clean Gallery Styles */
+    .gallery-item {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
     }
     
-    .pdf-item {
+    .gallery-image-container {
         position: relative;
+        width: 100%;
+        height: 200px;
+        border-radius: 8px;
+        overflow: hidden;
+        cursor: pointer;
+        background: var(--card-bg);
     }
     
-    .pdf-icon {
+    .gallery-thumbnail {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        padding: 10px;
+        transition: transform 0.3s ease;
+    }
+    
+    .gallery-image-container:hover .gallery-thumbnail {
+        transform: scale(1.05);
+    }
+    
+    .gallery-overlay {
         position: absolute;
-        top: 10px;
-        right: 10px;
-        background: var(--accent-color);
-        color: white;
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(138, 43, 226, 0.7);
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 1.2rem;
-        z-index: 2;
+        opacity: 0;
+        transition: opacity 0.3s ease;
     }
     
-    .gallery-link {
-        display: block;
-        text-decoration: none;
-        color: inherit;
+    .gallery-image-container:hover .gallery-overlay {
+        opacity: 1;
+    }
+    
+    .view-full {
+        color: white;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+    
+    .gallery-caption {
+        text-align: center;
+        font-size: 0.9rem;
+        color: var(--text-color);
+        line-height: 1.4;
+        min-height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 5px;
+    }
+    
+    /* Adjust project links section */
+    .project-links {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
     }
     
     @media (max-width: 768px) {
@@ -509,6 +512,10 @@ const lightboxStyles = `
         
         .lightbox-next {
             right: 10px;
+        }
+        
+        .gallery-image-container {
+            height: 180px;
         }
     }
 `;
