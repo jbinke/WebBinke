@@ -91,22 +91,22 @@ const projects = {
         galleryItems: [
             {
                 type: "image", 
-                src: "images/doctor-who-1.jpg", 
+                src: "images/dw_homepage.png", 
                 alt: "Home Page Design"
             },
             {
                 type: "image", 
-                src: "images/doctor-who-2.jpg", 
-                alt: "Episode Guide Interface"
+                src: "images/dw_media.png", 
+                alt: "Media Guide Interface"
             },
             {
                 type: "image", 
-                src: "images/doctor-who-3.jpg", 
+                src: "images/dw_quote.png", 
                 alt: "Quote Generator"
             },
             {
                 type: "image", 
-                src: "images/doctor-who-4.jpg", 
+                src: "images/dw_docs.png", 
                 alt: "The Doctor Database"
             }
         ],
@@ -187,26 +187,26 @@ function loadProjectData(projectId) {
         .join('');
     
     // LOAD GALLERY - Simple clean version
-    const gallery = document.getElementById('projectGallery');
-    gallery.innerHTML = project.galleryItems
-        .map((item, index) => {
-            return `
-                <div class="gallery-item">
-                    <div class="gallery-image-container">
-                        <img src="${item.src}" 
-                             alt="${item.alt}" 
-                             class="gallery-thumbnail"
-                             loading="lazy"
-                             onclick="openLightbox(${projectId}, ${index})">
-                        <div class="gallery-overlay">
-                            <span class="view-full">Click to enlarge</span>
-                        </div>
+    // LOAD GALLERY - Simple clean version
+const gallery = document.getElementById('projectGallery');
+gallery.innerHTML = project.galleryItems
+    .map((item, index) => {
+        return `
+            <div class="gallery-item">
+                <div class="gallery-image-container" onclick="openLightbox('${projectId}', ${index})">
+                    <img src="${item.src}" 
+                         alt="${item.alt}" 
+                         class="gallery-thumbnail"
+                         loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="view-full">Click to enlarge</span>
                     </div>
-                    <div class="gallery-caption">${item.alt}</div>
                 </div>
-            `;
-        })
-        .join('');
+                <div class="gallery-caption">${item.alt}</div>
+            </div>
+        `;
+    })
+    .join('');
     
     // UPDATE LINKS - Only show GitHub link if it exists
     const githubLink = document.getElementById('githubLink');
@@ -241,8 +241,21 @@ function showProjectNotFound() {
 
 // Simple Lightbox Function
 function openLightbox(projectId, imageIndex) {
-    const project = projects[projectId];
+    // Convert projectId to string if it's not already
+    const projectIdStr = String(projectId);
+    const project = projects[projectIdStr];
+    
+    if (!project) {
+        console.error('Project not found:', projectId);
+        return;
+    }
+    
     const item = project.galleryItems[imageIndex];
+    
+    if (!item) {
+        console.error('Image not found at index:', imageIndex);
+        return;
+    }
     
     // Create lightbox overlay
     const lightbox = document.createElement('div');
@@ -250,12 +263,12 @@ function openLightbox(projectId, imageIndex) {
     lightbox.innerHTML = `
         <div class="lightbox-content">
             <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
-            <button class="lightbox-nav lightbox-prev" onclick="changeLightboxImage(${projectId}, ${imageIndex}, -1)">‹</button>
+            <button class="lightbox-nav lightbox-prev" onclick="changeLightboxImage('${projectIdStr}', ${imageIndex}, -1)">‹</button>
             <div class="lightbox-main">
                 <img src="${item.src}" alt="${item.alt}" class="lightbox-image">
                 <div class="lightbox-caption">${item.alt}</div>
             </div>
-            <button class="lightbox-nav lightbox-next" onclick="changeLightboxImage(${projectId}, ${imageIndex}, 1)">›</button>
+            <button class="lightbox-nav lightbox-next" onclick="changeLightboxImage('${projectIdStr}', ${imageIndex}, 1)">›</button>
             <div class="lightbox-counter">${imageIndex + 1} / ${project.galleryItems.length}</div>
         </div>
     `;
@@ -277,7 +290,8 @@ function closeLightbox() {
 }
 
 function changeLightboxImage(projectId, currentIndex, direction) {
-    const project = projects[projectId];
+    const projectIdStr = String(projectId);
+    const project = projects[projectIdStr];
     const newIndex = (currentIndex + direction + project.galleryItems.length) % project.galleryItems.length;
     const item = project.galleryItems[newIndex];
     
@@ -296,8 +310,8 @@ function changeLightboxImage(projectId, currentIndex, direction) {
         const prevBtn = document.querySelector('.lightbox-prev');
         const nextBtn = document.querySelector('.lightbox-next');
         
-        prevBtn.onclick = () => changeLightboxImage(projectId, newIndex, -1);
-        nextBtn.onclick = () => changeLightboxImage(projectId, newIndex, 1);
+        if (prevBtn) prevBtn.onclick = () => changeLightboxImage(projectIdStr, newIndex, -1);
+        if (nextBtn) nextBtn.onclick = () => changeLightboxImage(projectIdStr, newIndex, 1);
     }
 }
 
@@ -309,7 +323,7 @@ function handleLightboxKeydown(event) {
         case 'ArrowLeft':
             const lightbox = document.querySelector('.lightbox-overlay');
             if (lightbox) {
-                const projectId = parseInt(new URLSearchParams(window.location.search).get('project'));
+                const projectId = new URLSearchParams(window.location.search).get('project');
                 const currentIndex = parseInt(document.querySelector('.lightbox-counter').textContent.split('/')[0]) - 1;
                 changeLightboxImage(projectId, currentIndex, -1);
             }
@@ -317,7 +331,7 @@ function handleLightboxKeydown(event) {
         case 'ArrowRight':
             const lightbox2 = document.querySelector('.lightbox-overlay');
             if (lightbox2) {
-                const projectId = parseInt(new URLSearchParams(window.location.search).get('project'));
+                const projectId = new URLSearchParams(window.location.search).get('project');
                 const currentIndex = parseInt(document.querySelector('.lightbox-counter').textContent.split('/')[0]) - 1;
                 changeLightboxImage(projectId, currentIndex, 1);
             }
@@ -524,3 +538,15 @@ const lightboxStyles = `
 const styleSheet = document.createElement('style');
 styleSheet.textContent = lightboxStyles;
 document.head.appendChild(styleSheet);
+
+console.log('Project Details JS loaded');
+
+// Test if openLightbox function is accessible globally
+window.testLightbox = function() {
+    console.log('openLightbox function is accessible:', typeof openLightbox);
+    // Try calling it with test values
+    if (projects[1] && projects[1].galleryItems && projects[1].galleryItems[0]) {
+        console.log('Test: Opening first image of first project');
+        openLightbox('1', 0);
+    }
+};
