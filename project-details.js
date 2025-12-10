@@ -30,13 +30,12 @@ const projects = {
         category: "Web Development",
         status: "Complete",
         heroText: "Tarot Card Database",
-        overview: "An interactive database of tarot cards with detailed meanings, symbolism, and digital reading capabilities. The site serves as both an educational resource and a practical tool for tarot enthusiasts.",
+        overview: "An interactive database of tarot cards with detailed meanings, symbolism, and digital card pulling capabilities. The site serves as both an educational resource and a practical tool for tarot enthusiasts.",
         features: [
             "Complete Major Arcana 22-card database",
             "Card meanings and interpretations",
             "Rand Card Generator",
             "Card symbolism explorer",
-            "Spread builder tool"
         ],
         process: "Built with a mobile-first approach, the site organizes complex tarot information into an intuitive interface. Each card page includes upright/reversed meanings, symbolism breakdown, and related cards. The digital reader uses JavaScript to simulate physical card draws.",
         technologies: ["HTML/CSS", "JavaScript", "API Integration", "Responsive Design", "UI/UX"],
