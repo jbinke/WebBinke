@@ -185,8 +185,7 @@ function loadProjectData(projectId) {
         .map(tech => `<span class="tech-tag">${tech}</span>`)
         .join('');
     
-    // LOAD GALLERY - Simple clean version
-    // LOAD GALLERY - Simple clean version
+
 const gallery = document.getElementById('projectGallery');
 gallery.innerHTML = project.galleryItems
     .map((item, index) => {
@@ -207,8 +206,7 @@ gallery.innerHTML = project.galleryItems
     })
     .join('');
     
-    // UPDATE LINKS - Only show GitHub link if it exists
-    // UPDATE PROJECT LINKS SECTION
+
 const linksSection = document.querySelector('.project-links');
 const githubLink = document.getElementById('githubLink');
 
@@ -233,7 +231,7 @@ function showProjectNotFound() {
     document.getElementById('projectOverview').textContent = "The requested project could not be found. Please return to the portfolio and select a valid project.";
 }
 
-// Simple Lightbox Function
+// Lightbox Function
 function openLightbox(projectId, imageIndex) {
     // Convert projectId to string if it's not already
     const projectIdStr = String(projectId);
@@ -333,7 +331,7 @@ function handleLightboxKeydown(event) {
     }
 }
 
-// Add CSS for lightbox and gallery (inject into page)
+// CSS for lightbox and gallery
 const lightboxStyles = `
     .lightbox-overlay {
         position: fixed;
