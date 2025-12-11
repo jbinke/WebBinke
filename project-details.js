@@ -16,7 +16,6 @@ const projects = {
         ],
         process: "The design process involved...",
         technologies: ["Adobe Illustrator", "Photoshop", "Typography", "Color Theory", "Digital Illustration"],
-        // GALLERY ITEMS WITH IMAGES
         galleryItems: [
             {
                 type: "image", 
@@ -39,7 +38,7 @@ const projects = {
                 alt: "The Scholars 2025 Tour"
             }
         ]
-        // NOTE: No github property for this project
+        // NO github property for this project - section will be hidden
     },
     2: {
         title: "Tarot Database Website",
@@ -73,7 +72,7 @@ const projects = {
                 alt: "Symbolism Explorer"
             }
         ],
-        github: "#" // Empty link for now
+        github: "https://jbinke.github.io/tarotproject/"
     },
     3: {
         title: "Doctor Who Fan Site",
@@ -110,7 +109,7 @@ const projects = {
                 alt: "The Doctor Database"
             }
         ],
-        github: "#" // Empty link for now
+        github: "#"
     }
 };
 
@@ -209,29 +208,24 @@ gallery.innerHTML = project.galleryItems
     .join('');
     
     // UPDATE LINKS - Only show GitHub link if it exists
-    const githubLink = document.getElementById('githubLink');
-    if (project.github) {
-        if (project.github !== '#') {
-            githubLink.href = project.github;
-            githubLink.style.display = 'flex'; // Show the link
-        } else {
-            githubLink.style.display = 'none'; // Hide the link if it's just '#'
-        }
+    // UPDATE PROJECT LINKS SECTION
+const linksSection = document.querySelector('.project-links');
+const githubLink = document.getElementById('githubLink');
+
+if (project.github) {
+    // If project has a GitHub URL (not '#'), show the link
+    if (project.github !== '#') {
+        githubLink.href = project.github;
+        githubLink.style.display = 'flex';
+        linksSection.style.display = 'block';
     } else {
-        // If no github property at all, hide the entire links section
-        const linksSection = document.querySelector('.project-links');
-        if (linksSection) {
-            linksSection.style.display = 'none';
-        }
+        // If it's just '#', hide the entire section
+        linksSection.style.display = 'none';
     }
-    
-    // For Car Seat Headrest project (id: 1), hide GitHub links section entirely
-    if (projectId === "1") {
-        const linksSection = document.querySelector('.project-links');
-        if (linksSection) {
-            linksSection.style.display = 'none';
-        }
-    }
+} else {
+    // If no github property exists, hide the entire section
+    linksSection.style.display = 'none';
+}
 }
 
 function showProjectNotFound() {
