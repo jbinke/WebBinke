@@ -109,7 +109,7 @@ const projects = {
                 alt: "The Doctor Database"
             }
         ],
-        github: "#"
+        github: "https://jbinke.github.io/DoctorWho/"
     }
 };
 
